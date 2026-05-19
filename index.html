@@ -1114,12 +1114,30 @@
     return paths;
   }
 
-  function parseResTime(str) {
-    if (!str) return 0;
-    let total = 0;
-    const h = str.match(/(\d+)h/); if (h) total += parseInt(h[1]) * 60;
-    const m = str.match(/(\d+)m/); if (m) total += parseInt(m[1]);
-    return total;
+function parseResTime(str) {
+  if (!str) return 0;
+
+  // Supports HH:MM:SS
+  if (str.includes(':')) {
+    const parts = str.split(':');
+
+    const hours = parseInt(parts[0]) || 0;
+    const minutes = parseInt(parts[1]) || 0;
+    const seconds = parseInt(parts[2]) || 0;
+
+    return (hours * 60) + minutes + (seconds / 60);
+  }
+
+  // Backward compatibility for old format like "2h 15m"
+  let total = 0;
+
+  const h = str.match(/(\d+)h/);
+  if (h) total += parseInt(h[1]) * 60;
+
+  const m = str.match(/(\d+)m/);
+  if (m) total += parseInt(m[1]);
+
+  return total;
   }
 
   // ══════════════════════════════════════════
