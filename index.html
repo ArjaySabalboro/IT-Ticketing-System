@@ -274,7 +274,16 @@
     tbody tr:hover { background: var(--surface2); }
     .ticket-id { font-family: var(--mono); font-size: 11px; color: var(--text3); }
     .ticket-name { font-weight: 600; color: var(--text); }
-    .ticket-issue { color: var(--text2); max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    /* ADDED FEATURE 1 */
+    .ticket-issue { 
+  display: inline-block; /* This allows max-width and overflow to work */
+  vertical-align: middle; /* Keeps it aligned with the rest of the row */
+  color: var(--text2); 
+  max-width: 220px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
     .category-chip {
       display: inline-block; padding: 2px 9px; border-radius: 20px;
       font-size: 11px; font-weight: 500;
