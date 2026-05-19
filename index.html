@@ -273,7 +273,17 @@
     tbody tr { background: white; transition: background 0.1s; }
     tbody tr:hover { background: var(--surface2); }
     .ticket-id { font-family: var(--mono); font-size: 11px; color: var(--text3); }
-    .ticket-name { font-weight: 600; color: var(--text); }
+
+    /* ADDED FEATURE 2 */
+    .ticket-name {
+  display: inline-block; /* This allows max-width and overflow to work */
+  vertical-align: middle; /* Keeps it aligned with the rest of the row */
+  color: var(--text2); 
+  max-width: 220px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+    }
     /* ADDED FEATURE 1 */
     .ticket-issue { 
   display: inline-block; /* This allows max-width and overflow to work */
